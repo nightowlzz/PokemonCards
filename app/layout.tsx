@@ -1,5 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({
+	weight: ['100', '300', '400', '500', '700', '900'],
+	subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
 	title: 'PoketMon Cards',
@@ -13,7 +19,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ko'>
-			<body>{children}</body>
+			<body className={`${roboto.className} bg-black/80 text-white`}>{children}</body>
 		</html>
 	);
 }
