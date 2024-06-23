@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-// module.exports = {
-// 	async rewrites() {
-// 		return [
-// 			{
-// 				source: '/__/auth/:path*',
-// 				destination: '/api/auth/:path*', // Proxy to API
-// 			},
-// 		];
-// 	},
-// };
+const nextConfig = {
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: '**',
+				port: '',
+				pathname: '/**',
+			},
+		],
+		formats: ['image/avif', 'image/webp'], // 지원할 이미지 형식 추가
+	},
+};
+
 export default nextConfig;

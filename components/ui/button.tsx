@@ -15,6 +15,7 @@ const buttonVariants = cva(
 				secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
 				ghost: 'hover:bg-accent hover:text-accent-foreground',
 				link: 'text-primary underline-offset-4 hover:underline',
+				circleIcon: 'rounded-3xl bg-[#ffcc3f] w-[80px] text-[#436e6b] font-bold hover:bg-[#79b4b0] hover:text-white text-base',
 			},
 			size: {
 				default: 'h-12 px-4 py-2 w-full',
