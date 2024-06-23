@@ -1,9 +1,16 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Card } from './card';
+import { Card, cardBgcolorType, cardType } from './card';
 
-export function CardBox({ name, image }: { name: string; image: string }) {
+interface CardBodProp {
+	type?: cardType;
+	cardBgcolor?: cardBgcolorType;
+	name: string;
+	image: string;
+}
+
+export function CardBox({ type, cardBgcolor, name, image }: CardBodProp) {
 	const [rotate, setRotate] = useState({ x: 0, y: 0 }); // 카드 rotate
 	const [shadow, setShadow] = useState({ x: 0, y: 0 }); // 카드 광 위치
 	const [isMouseOut, setIsMouseOut] = useState(false); // transition 삭제, 추가
@@ -40,6 +47,8 @@ export function CardBox({ name, image }: { name: string; image: string }) {
 
 	return (
 		<Card
+			type={type}
+			cardBgcolor={cardBgcolor}
 			handleMouseMoving={handleMouseMoving}
 			handleMouseOut={handleMouseOut}
 			isMouseOut={isMouseOut}
