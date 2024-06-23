@@ -1,5 +1,4 @@
 import { poketmonApi } from '@/api/poketmon.api';
-import TCGdex from '@tcgdex/sdk';
 import { CardBox } from './card-box';
 
 export interface CardType {

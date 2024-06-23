@@ -3,13 +3,10 @@ import { cardBgcolorType } from '@/app/(home)/_components/(card)/card';
 import { CardBox } from '@/app/(home)/_components/(card)/card-box';
 import { createCardInfo } from '@/app/(home)/_components/(card)/card.constants';
 import { Button } from '@/components/ui/button';
-import { zodResolver } from '@hookform/resolvers/zod';
 import html2canvas from 'html2canvas';
 import { useRef, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { CreateCardForm } from './_components/create-card-form';
-// const bg = '/images/cat1.jpg';
+
 const cardBgType = Object.keys(createCardInfo);
 
 export default function CreateCard() {

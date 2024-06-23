@@ -1,15 +1,15 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, cardBgcolorType, cardType } from './card';
 
 interface CardBodProp {
-	type?: cardType;
-	cardBgcolor?: cardBgcolorType;
 	name: string;
 	image: string;
-	cardTitle: string;
-	cardDesc: string;
+	type?: cardType;
+	cardBgcolor?: cardBgcolorType;
+	cardTitle?: string;
+	cardDesc?: string;
 }
 
 export function CardBox({ type, cardBgcolor, name, image, cardTitle, cardDesc }: CardBodProp) {

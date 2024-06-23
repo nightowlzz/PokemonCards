@@ -5,21 +5,15 @@ import { cn } from '@/lib/utils';
 import '@/public/styles/font.css';
 
 const monsterBall = '/images/monster-ball.png';
-const CARD_WIDTH_PC = 330;
-const CARD_HEIGHT_PC = 460;
 
 // CardProps 인터페이스 정의
 export type cardBgcolorType = keyof typeof createCardInfo;
 export type cardType = 'view' | 'create';
 interface CardProps {
-	type?: cardType;
-	cardBgcolor?: cardBgcolorType;
 	handleMouseMoving: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 	handleMouseOut: () => void;
 	image: string;
 	name: string;
-	cardTitle: string;
-	cardDesc: string;
 	isMouseOut: boolean;
 	rotate: {
 		x: number;
@@ -29,6 +23,10 @@ interface CardProps {
 		x: number;
 		y: number;
 	};
+	type?: cardType;
+	cardBgcolor?: cardBgcolorType;
+	cardTitle?: string;
+	cardDesc?: string;
 }
 
 export function Card({
