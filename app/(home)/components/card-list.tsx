@@ -16,7 +16,6 @@ const getServerSideProps = async () => {
 
 export async function CardList() {
 	const data: CardType[] = await getServerSideProps();
-	console.log('data>>>>>>>>>>>>>>>>>>>', data);
 	return (
 		<div>
 			<ul className='grid grid-cols-3 gap-20'>

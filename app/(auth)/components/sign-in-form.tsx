@@ -48,7 +48,7 @@ export function SignInForm() {
 				password: value.password,
 			});
 			// cookie 저장
-			await setAccessToken(data.token);
+			await setAccessToken(data.accessToken);
 			router.replace('/');
 		} catch (e: any) {
 			if (e.response && e.response.data && e.response.data.message) {

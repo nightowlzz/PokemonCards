@@ -33,7 +33,7 @@ export function Card({ handleMouseMoving, handleMouseOut, rotate, shadow, name, 
 				transition: isMouseOut ? 'transform 0.6s ease, box-shadow 0.6s ease' : 'none',
 			}}
 		>
-			<Image src={`${image}/high.webp`} alt={name} fill style={{ objectFit: 'cover' }} />
+			<Image src={`${image}/high.webp`} alt={name} fill style={{ objectFit: 'cover' }} sizes='(min-width: 1024px) 330px, 250px' />
 			{/* <Image src={card_back_imag} alt='포켓몬카드뒷면' width={CARD_WIDTH_PC} height={CARD_HEIGHT_PC} /> */}
 			<div className={styled.overlay} style={{ left: `${shadow.x}px`, top: `${shadow.y}px` }}></div>
 		</div>
