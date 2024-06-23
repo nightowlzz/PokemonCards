@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ko'>
-			<body className={`${roboto.className} bg-[#1d4d9f] text-white`}>{children}</body>
+			<body className={`${roboto.className} bg-[#393c41] text-white`}>
+				<main className='max-w-[1240px] m-auto p-12'>{children}</main>
+			</body>
 		</html>
 	);
 }

@@ -16,7 +16,6 @@ const getCookie = async () => {
 
 export async function Aside() {
 	const isLoggedIn = await getCookie();
-	console.log('isLoggedIn??', isLoggedIn);
 	return (
 		<aside className={styled.wrap}>
 			{/* 로그인 전 */}
@@ -35,7 +34,21 @@ export async function Aside() {
 				</>
 			)}
 			{/* 로그인 후 */}
-			{Boolean(isLoggedIn) && <LogOutButton />}
+			{Boolean(isLoggedIn) && (
+				<>
+					<Button variant={'circleIcon'} asChild className={styled.button}>
+						<Link href='/create-card' prefetch={true}>
+							카드만들기
+						</Link>
+					</Button>
+					<Button variant={'circleIcon'} asChild className={styled.button}>
+						<Link href='/setting' prefetch={true}>
+							회원정보
+						</Link>
+					</Button>
+					<LogOutButton />
+				</>
+			)}
 			<Button asChild variant={'circleIcon'} className={styled.button}>
 				<Link href={'/'} replace>
 					Top

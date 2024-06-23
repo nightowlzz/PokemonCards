@@ -5,9 +5,9 @@ import { Aside } from './_components/(aside)/aside';
 
 export default async function Main() {
 	return (
-		<main className='max-w-[1240px] m-auto px-5'>
+		<div>
 			<CardList />
 			<Aside />
-		</main>
+		</div>
 	);
 }
