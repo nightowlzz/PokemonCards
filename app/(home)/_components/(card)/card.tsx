@@ -18,6 +18,8 @@ interface CardProps {
 	handleMouseOut: () => void;
 	image: string;
 	name: string;
+	cardTitle: string;
+	cardDesc: string;
 	isMouseOut: boolean;
 	rotate: {
 		x: number;
@@ -29,7 +31,19 @@ interface CardProps {
 	};
 }
 
-export function Card({ type = 'view', cardBgcolor = 'blue', handleMouseMoving, handleMouseOut, rotate, shadow, name, image, isMouseOut }: CardProps) {
+export function Card({
+	type = 'view',
+	cardBgcolor = 'blue',
+	handleMouseMoving,
+	handleMouseOut,
+	rotate,
+	shadow,
+	name,
+	image,
+	isMouseOut,
+	cardTitle,
+	cardDesc,
+}: CardProps) {
 	return (
 		<div
 			className={styled.card}
@@ -57,13 +71,13 @@ export function Card({ type = 'view', cardBgcolor = 'blue', handleMouseMoving, h
 			{type === 'create' && (
 				<div className={cn(styled.cardBackImgWrap, createCardInfo[cardBgcolor].backImageClassName)}>
 					{/* 타이틀 */}
-					<strong className={styled.title}>카드이름 카드이름 카드이름</strong>
+					<strong className={styled.title}>{cardTitle}</strong>
 					{/* 정보 */}
 					<div className={styled.desc}>
 						<span className='flex items-center mb-2'>
 							<Image src={monsterBall} alt={'몬스터볼'} width={30} height={30} /> 정보
 						</span>
-						<p>왜이래 뭐지 뭐가가 뭚나어리ㅏ먼이;라왜이래 뭐지 뭐가가 뭚나어리ㅏ먼이;라왜이래 뭐지 뭐가가 뭚나어리ㅏ먼이;라</p>
+						<p>{cardDesc}</p>
 					</div>
 					{/* 카드배경 */}
 					<Image

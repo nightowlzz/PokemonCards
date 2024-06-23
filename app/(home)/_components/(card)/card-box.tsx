@@ -8,9 +8,11 @@ interface CardBodProp {
 	cardBgcolor?: cardBgcolorType;
 	name: string;
 	image: string;
+	cardTitle: string;
+	cardDesc: string;
 }
 
-export function CardBox({ type, cardBgcolor, name, image }: CardBodProp) {
+export function CardBox({ type, cardBgcolor, name, image, cardTitle, cardDesc }: CardBodProp) {
 	const [rotate, setRotate] = useState({ x: 0, y: 0 }); // 카드 rotate
 	const [shadow, setShadow] = useState({ x: 0, y: 0 }); // 카드 광 위치
 	const [isMouseOut, setIsMouseOut] = useState(false); // transition 삭제, 추가
@@ -56,6 +58,8 @@ export function CardBox({ type, cardBgcolor, name, image }: CardBodProp) {
 			shadow={shadow}
 			image={image}
 			name={name}
+			cardTitle={cardTitle}
+			cardDesc={cardDesc}
 		/>
 	);
 }

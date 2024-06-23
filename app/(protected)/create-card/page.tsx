@@ -3,16 +3,25 @@ import { cardBgcolorType } from '@/app/(home)/_components/(card)/card';
 import { CardBox } from '@/app/(home)/_components/(card)/card-box';
 import { createCardInfo } from '@/app/(home)/_components/(card)/card.constants';
 import { Button } from '@/components/ui/button';
-import { useRef, useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
 import html2canvas from 'html2canvas';
-
-const bg = '/images/cat1.jpg';
+import { useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { CreateCardForm } from './_components/create-card-form';
+// const bg = '/images/cat1.jpg';
 const cardBgType = Object.keys(createCardInfo);
 
 export default function CreateCard() {
+	const [cardTitle, setCardTitle] = useState<string>('');
+	const [cardDesc, setCardDesc] = useState<string>('');
 	const [cardBg, setCardBg] = useState<cardBgcolorType>('yellow');
+	const [imageUrl, setImageUrl] = useState<string>('');
+	const [imageFile, setImageFile] = useState<File | null>(null);
+
 	const cardRef = useRef(null);
 
+	// 이미지 다운로드
 	const handleCapture = () => {
 		const cardBoxElement = cardRef.current;
 		if (cardBoxElement) {
@@ -24,6 +33,7 @@ export default function CreateCard() {
 			});
 		}
 	};
+
 	return (
 		<section>
 			<div>
@@ -36,12 +46,23 @@ export default function CreateCard() {
 						))}
 					</div>
 					<div ref={cardRef}>
-						<CardBox type={'create'} cardBgcolor={cardBg} name={'bg'} image={bg} />
+						<CardBox type={'create'} cardBgcolor={cardBg} name={'bg'} image={imageUrl} cardTitle={cardTitle} cardDesc={cardDesc} />
 					</div>
+					<Button onClick={handleCapture} className='absolute right-4 top-4 font-bold w-[150px] text-black'>
+						카드 다운로드
+					</Button>
 				</div>
 			</div>
-			<div>
-				<Button onClick={handleCapture}>Capture CardBox</Button>
+			<div className='relative pr-[35%] my-10'>
+				<CreateCardForm
+					setImageUrl={setImageUrl}
+					setImageFile={setImageFile}
+					setCardTitle={setCardTitle}
+					setCardDesc={setCardDesc}
+					cardTitle={cardTitle}
+					cardDesc={cardDesc}
+					imageUrl={imageUrl}
+				/>
 			</div>
 		</section>
 	);
