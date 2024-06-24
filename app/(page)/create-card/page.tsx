@@ -4,6 +4,8 @@ import html2canvas from 'html2canvas';
 import { useRef, useState } from 'react';
 import { CardBox } from '../(main)/_components/(card)/card-box';
 import { CreateCardForm } from './_components/create-card-form';
+import Link from 'next/link';
+import { BsBackspace } from 'react-icons/bs';
 
 export default function CreateCard() {
 	const [cardTitle, setCardTitle] = useState<string>('');
@@ -29,6 +31,9 @@ export default function CreateCard() {
 	return (
 		<section className='flex items-center justify-center w-full'>
 			<div className='relative bg-white w-full h-[700px] flex items-center justify-center pr-[400px] rounded-lg'>
+				<Link href={'/'} className='absolute left-0 top-4 flex items-center gap-2 text-black p-4 bg-yellow-300'>
+					<BsBackspace /> 메인가기
+				</Link>
 				<div ref={cardRef}>
 					<CardBox type={'create'} cardBgcolor={cardBg} name={'bg'} image={imageUrl} cardTitle={cardTitle} cardDesc={cardDesc} />
 				</div>
