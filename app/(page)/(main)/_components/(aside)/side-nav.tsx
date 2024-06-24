@@ -9,12 +9,12 @@ const styled = {
 export async function SideNav() {
 	return (
 		<aside className={styled.wrap}>
-			<Button variant={'circleIcon'} asChild className={styled.button}>
+			<Button asChild className={styled.button}>
 				<Link href='/create-card' prefetch={true}>
 					카드만들기
 				</Link>
 			</Button>
-			<Button asChild variant={'circleIcon'} className={styled.button}>
+			<Button asChild className={styled.button}>
 				<Link href={'/'} replace>
 					Top
 				</Link>

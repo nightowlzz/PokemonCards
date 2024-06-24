@@ -12,9 +12,9 @@ const cardBgType = Object.keys(createCardInfo);
 export default function CreateCard() {
 	const [cardTitle, setCardTitle] = useState<string>('');
 	const [cardDesc, setCardDesc] = useState<string>('');
-	const [cardBg, setCardBg] = useState<cardBgcolorType>('yellow');
 	const [imageUrl, setImageUrl] = useState<string>('');
-	const [imageFile, setImageFile] = useState<File | null>(null);
+	const [cardBg, setCardBg] = useState<string | number>('yellow');
+	// const [imageFile, setImageFile] = useState<File | null>(null);
 
 	const cardRef = useRef(null);
 
@@ -32,34 +32,25 @@ export default function CreateCard() {
 	};
 
 	return (
-		<section>
-			<div>
-				<div className='relative bg-white w-full h-[600px] flex items-center justify-center'>
-					<div className='absolute flex flex-col gap-2 left-4 top-4 text-black text-left'>
-						{cardBgType.map((bg, i) => (
-							<Button key={i} onClick={() => setCardBg(bg)} className={`${createCardInfo[bg].buttonClassName}`}>
-								{bg}
-							</Button>
-						))}
-					</div>
-					<div ref={cardRef}>
-						<CardBox type={'create'} cardBgcolor={cardBg} name={'bg'} image={imageUrl} cardTitle={cardTitle} cardDesc={cardDesc} />
-					</div>
+		<section className='flex items-center justify-center w-full'>
+			<div className='relative bg-white w-full h-[700px] flex items-center justify-center pr-[400px]'>
+				<div ref={cardRef}>
+					<CardBox type={'create'} cardBgcolor={cardBg} name={'bg'} image={imageUrl} cardTitle={cardTitle} cardDesc={cardDesc} />
+				</div>
+				<div className='absolute right-0 top-0 w-[400px] h-full bg-black/30'>
 					<Button onClick={handleCapture} className='absolute right-4 top-4 font-bold w-[150px] text-black'>
 						카드 다운로드
 					</Button>
+					<CreateCardForm
+						setImageUrl={setImageUrl}
+						setCardTitle={setCardTitle}
+						setCardDesc={setCardDesc}
+						setCardBg={setCardBg}
+						cardTitle={cardTitle}
+						cardDesc={cardDesc}
+						imageUrl={imageUrl}
+					/>
 				</div>
-			</div>
-			<div className='relative pr-[35%] my-10'>
-				<CreateCardForm
-					setImageUrl={setImageUrl}
-					setImageFile={setImageFile}
-					setCardTitle={setCardTitle}
-					setCardDesc={setCardDesc}
-					cardTitle={cardTitle}
-					cardDesc={cardDesc}
-					imageUrl={imageUrl}
-				/>
 			</div>
 		</section>
 	);

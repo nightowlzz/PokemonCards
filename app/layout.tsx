@@ -20,7 +20,7 @@ export default function RootLayout({
 	return (
 		<html lang='ko'>
 			<body className={`${roboto.className} bg-[#393c41] text-white`}>
-				<main className='max-w-[1240px] m-auto p-12'>{children}</main>
+				<main className='flex flex-col items-center justify-center max-w-[1240px] m-auto p-12 min-h-screen'>{children}</main>
 			</body>
 		</html>
 	);
