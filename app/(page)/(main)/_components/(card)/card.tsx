@@ -50,7 +50,7 @@ export function Card({
 			style={{
 				transform: `perspective(600px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
 				transition: isMouseOut ? 'transform 0.6s ease, box-shadow 0.6s ease' : 'none',
-				background: `url(${type === 'view' ? '/images/poketmon-back-image.jpg' : ''}) no-repeat center`,
+				backgroundImage: `url(${type === 'view' ? '/images/poketmon-back-image.jpg' : ''})`,
 			}}
 		>
 			{/* 보는 이미지 */}

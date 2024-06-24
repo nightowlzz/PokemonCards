@@ -1,11 +1,11 @@
 'use client';
-import { cardBgcolorType } from '@/app/(home)/_components/(card)/card';
-import { CardBox } from '@/app/(home)/_components/(card)/card-box';
-import { createCardInfo } from '@/app/(home)/_components/(card)/card.constants';
 import { Button } from '@/components/ui/button';
 import html2canvas from 'html2canvas';
 import { useRef, useState } from 'react';
 import { CreateCardForm } from './_components/create-card-form';
+import { createCardInfo } from '../(main)/_components/(card)/card.constants';
+import { cardBgcolorType } from '../(main)/_components/(card)/card';
+import { CardBox } from '../(main)/_components/(card)/card-box';
 
 const cardBgType = Object.keys(createCardInfo);
 
