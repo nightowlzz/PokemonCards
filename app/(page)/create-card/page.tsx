@@ -2,19 +2,14 @@
 import { Button } from '@/components/ui/button';
 import html2canvas from 'html2canvas';
 import { useRef, useState } from 'react';
-import { CreateCardForm } from './_components/create-card-form';
-import { createCardInfo } from '../(main)/_components/(card)/card.constants';
-import { cardBgcolorType } from '../(main)/_components/(card)/card';
 import { CardBox } from '../(main)/_components/(card)/card-box';
-
-const cardBgType = Object.keys(createCardInfo);
+import { CreateCardForm } from './_components/create-card-form';
 
 export default function CreateCard() {
 	const [cardTitle, setCardTitle] = useState<string>('');
 	const [cardDesc, setCardDesc] = useState<string>('');
 	const [imageUrl, setImageUrl] = useState<string>('');
 	const [cardBg, setCardBg] = useState<string | number>('yellow');
-	// const [imageFile, setImageFile] = useState<File | null>(null);
 
 	const cardRef = useRef(null);
 
@@ -33,14 +28,11 @@ export default function CreateCard() {
 
 	return (
 		<section className='flex items-center justify-center w-full'>
-			<div className='relative bg-white w-full h-[700px] flex items-center justify-center pr-[400px]'>
+			<div className='relative bg-white w-full h-[700px] flex items-center justify-center pr-[400px] rounded-lg'>
 				<div ref={cardRef}>
 					<CardBox type={'create'} cardBgcolor={cardBg} name={'bg'} image={imageUrl} cardTitle={cardTitle} cardDesc={cardDesc} />
 				</div>
-				<div className='absolute right-0 top-0 w-[400px] h-full bg-black/30'>
-					<Button onClick={handleCapture} className='absolute right-4 top-4 font-bold w-[150px] text-black'>
-						카드 다운로드
-					</Button>
+				<div className='absolute right-0 top-0 w-[400px] h-full bg-black/30 p-8'>
 					<CreateCardForm
 						setImageUrl={setImageUrl}
 						setCardTitle={setCardTitle}
@@ -50,6 +42,9 @@ export default function CreateCard() {
 						cardDesc={cardDesc}
 						imageUrl={imageUrl}
 					/>
+					<Button onClick={handleCapture} className='font-bold w-[150px] bg-orange-200 text-black mt-6 w-full hover:bg-orange-300 '>
+						카드 다운로드
+					</Button>
 				</div>
 			</div>
 		</section>
