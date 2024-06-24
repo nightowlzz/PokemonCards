@@ -4,10 +4,8 @@ import { createCardInfo } from './card.constants';
 import { cn } from '@/lib/utils';
 import '@/public/styles/font.css';
 
-const monsterBall = '/images/monster-ball.png';
-
 // CardProps 인터페이스 정의
-export type cardBgcolorType = keyof typeof createCardInfo;
+export type cardBgTypeType = keyof typeof createCardInfo;
 export type cardType = 'view' | 'create';
 interface CardProps {
 	handleMouseMoving: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
@@ -24,14 +22,14 @@ interface CardProps {
 		y: number;
 	};
 	type?: cardType;
-	cardBgcolor?: cardBgcolorType;
+	cardBgType?: cardBgTypeType;
 	cardTitle?: string;
 	cardDesc?: string;
 }
 
 export function Card({
 	type = 'view',
-	cardBgcolor = 'blue',
+	cardBgType = 'blue',
 	handleMouseMoving,
 	handleMouseOut,
 	rotate,
@@ -67,19 +65,16 @@ export function Card({
 
 			{/* 만드는 이미지 */}
 			{type === 'create' && (
-				<div className={cn(styled.cardBackImgWrap, createCardInfo[cardBgcolor].backImageClassName)}>
+				<div className={cn(styled.cardBackImgWrap, createCardInfo[cardBgType].backImageClassName)}>
 					{/* 타이틀 */}
 					<strong className={styled.title}>{cardTitle}</strong>
-					{/* 정보 */}
 					<div className={styled.desc}>
-						<span className='flex items-center mb-2'>
-							<Image src={monsterBall} alt={'몬스터볼'} width={30} height={30} /> 정보
-						</span>
+						<span className={cn(styled.descTitle, 'block mb-2')}>🍚 Info.</span>
 						<p>{cardDesc}</p>
 					</div>
 					{/* 카드배경 */}
 					<Image
-						src={`${createCardInfo[cardBgcolor].frontImageUrl}`}
+						src={`${createCardInfo[cardBgType].frontImageUrl}`}
 						alt={name}
 						className='cardFrontImage'
 						fill
@@ -92,7 +87,6 @@ export function Card({
 					</div>
 				</div>
 			)}
-			{/* <Image src={card_back_imag} alt='포켓몬카드뒷면' width={CARD_WIDTH_PC} height={CARD_HEIGHT_PC} /> */}
 			<div className={styled.overlay} style={{ left: `${shadow.x}px`, top: `${shadow.y}px` }}></div>
 		</div>
 	);

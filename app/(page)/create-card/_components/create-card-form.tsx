@@ -13,13 +13,14 @@ interface CreateFormProps {
 	cardTitle: string;
 	cardDesc: string;
 	imageUrl: string;
+	cardBg: string | number;
 	setCardTitle: React.Dispatch<React.SetStateAction<string>>;
 	setCardDesc: React.Dispatch<React.SetStateAction<string>>;
 	setImageUrl: React.Dispatch<React.SetStateAction<string>>;
 	setCardBg: (bg: string) => void;
 }
 
-export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDesc, cardTitle, cardDesc, imageUrl }: CreateFormProps) {
+export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDesc, cardTitle, cardDesc, imageUrl, cardBg }: CreateFormProps) {
 	const { register, handleSubmit } = useForm();
 
 	// 파일url
@@ -38,7 +39,7 @@ export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDe
 	};
 
 	return (
-		<form className='w-full'>
+		<div>
 			<div>
 				<label className='block text-base mb-2'>카드 배경 선택</label>
 				<div className='grid grid-cols-3 items-center justify-start gap-2'>
@@ -63,38 +64,42 @@ export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDe
 				<label htmlFor='title' className='block text-base mb-2'>
 					카드이름
 				</label>
-				<Input
+				<Textarea
 					id='title'
-					type='text'
-					placeholder='카드 이름을 지어주세요. 최대(12자)'
-					className='text-black pr-[90px]'
+					placeholder={`${createCardInfo[cardBg].titlePlaceholder}`}
+					className='text-black min-h-[60px] pr-[90px]'
 					value={cardTitle}
 					{...register('title', {
 						required: true,
-						maxLength: 12,
-						onChange: e => setCardTitle(e.target.value.slice(0, 12)),
+						maxLength: createCardInfo[cardBg].maxTitleLength,
+						onChange: e => setCardTitle(e.target.value.slice(0, createCardInfo[cardBg].maxTitleLength)),
 					})}
 				/>
-				<span className='absolute right-0 bottom-0 text-black bg-orange-200 h-10 px-5 flex items-center justify-center rounded-lg'>
-					{cardTitle.length}/12
+				<span className='absolute right-0 bottom-0 text-black bg-orange-200 h-[60px] w-[80px] px-5 flex items-center justify-center rounded-lg'>
+					{cardTitle.length}/{createCardInfo[cardBg].maxTitleLength}
 				</span>
 			</div>
-
-			<div className='relative rounded-lg mt-6'>
-				<label htmlFor='desc' className='block text-base mb-2'>
-					카드정보
-				</label>
-				<Textarea
-					id='desc'
-					placeholder='내용을 적어주세요. 최대(50자)'
-					className='text-black pr-[90px] h-[100px]'
-					value={cardDesc}
-					{...register('desc', { required: true, maxLength: 50, onChange: e => setCardDesc(e.target.value.slice(0, 50)) })}
-				/>
-				<span className='absolute right-0 bottom-0 text-black bg-orange-200 h-[100px] px-5 flex items-center justify-center rounded-lg'>
-					{cardDesc.length}/50
-				</span>
-			</div>
+			{cardBg !== 'full' && (
+				<div className='relative rounded-lg mt-6'>
+					<label htmlFor='desc' className='block text-base mb-2'>
+						카드정보
+					</label>
+					<Textarea
+						id='desc'
+						placeholder={`${createCardInfo[cardBg].textPlaceholder}`}
+						className='text-black pr-[90px] h-[100px]'
+						value={cardDesc}
+						{...register('desc', {
+							required: true,
+							maxLength: createCardInfo[cardBg].maxTextLength,
+							onChange: e => setCardDesc(e.target.value.slice(0, createCardInfo[cardBg].maxTextLength)),
+						})}
+					/>
+					<span className='absolute right-0 bottom-0 text-black bg-orange-200 h-[100px] w-[80px] px-5 flex items-center justify-center rounded-lg'>
+						{cardDesc.length}/{createCardInfo[cardBg].maxTextLength}
+					</span>
+				</div>
+			)}
 
 			<div className='relative flex items-center justify-center rounded-lg mt-6 p-5 bg-white'>
 				<div className='relative z-10 flex items-center justify-center w-[140px] h-[140px]'>
@@ -115,6 +120,6 @@ export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDe
 					<IoCloseCircleOutline color={'black'} className='w-8 h-8 p-0 text-lg' />
 				</button>
 			</div>
-		</form>
+		</div>
 	);
 }

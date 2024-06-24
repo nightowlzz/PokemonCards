@@ -1,18 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Card, cardBgcolorType, cardType } from './card';
+import { Card, cardBgTypeType, cardType } from './card';
 
 interface CardBodProp {
 	name: string;
 	image: string;
 	type?: cardType;
-	cardBgcolor?: cardBgcolorType;
+	cardBgType?: cardBgTypeType;
 	cardTitle?: string;
 	cardDesc?: string;
 }
 
-export function CardBox({ type, cardBgcolor, name, image, cardTitle, cardDesc }: CardBodProp) {
+export function CardBox({ type, cardBgType, name, image, cardTitle, cardDesc }: CardBodProp) {
 	const [rotate, setRotate] = useState({ x: 0, y: 0 }); // 카드 rotate
 	const [shadow, setShadow] = useState({ x: 0, y: 0 }); // 카드 광 위치
 	const [isMouseOut, setIsMouseOut] = useState(false); // transition 삭제, 추가
@@ -50,7 +50,7 @@ export function CardBox({ type, cardBgcolor, name, image, cardTitle, cardDesc }:
 	return (
 		<Card
 			type={type}
-			cardBgcolor={cardBgcolor}
+			cardBgType={cardBgType}
 			handleMouseMoving={handleMouseMoving}
 			handleMouseOut={handleMouseOut}
 			isMouseOut={isMouseOut}

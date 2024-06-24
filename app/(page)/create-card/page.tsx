@@ -23,6 +23,8 @@ export default function CreateCard() {
 				const link = document.createElement('a');
 				link.href = canvas.toDataURL('image/png');
 				link.download = 'my-poketmon-card.png';
+				link.style.padding = '0';
+				link.style.margin = '0';
 				link.click();
 			});
 		}
@@ -35,7 +37,7 @@ export default function CreateCard() {
 					<BsBackspace /> 메인가기
 				</Link>
 				<div ref={cardRef}>
-					<CardBox type={'create'} cardBgcolor={cardBg} name={'bg'} image={imageUrl} cardTitle={cardTitle} cardDesc={cardDesc} />
+					<CardBox type={'create'} cardBgType={cardBg} name={'bg'} image={imageUrl} cardTitle={cardTitle} cardDesc={cardDesc} />
 				</div>
 				<div className='absolute right-0 top-0 w-[400px] h-full bg-black/30 p-8'>
 					<CreateCardForm
@@ -46,6 +48,7 @@ export default function CreateCard() {
 						cardTitle={cardTitle}
 						cardDesc={cardDesc}
 						imageUrl={imageUrl}
+						cardBg={cardBg}
 					/>
 					<Button onClick={handleCapture} className='font-bold w-[150px] bg-orange-200 text-black mt-6 w-full hover:bg-orange-300 '>
 						카드 다운로드

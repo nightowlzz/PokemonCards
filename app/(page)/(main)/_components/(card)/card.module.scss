@@ -93,6 +93,8 @@
     width: 100%;
     font-size: 24px;
     color: black;
+    line-height: 1.2;
+    white-space: pre-wrap;
     z-index: 4;
   }
   .desc {
@@ -101,7 +103,8 @@
     width: 100%;
     font-size: 18px;
     color: black;
-    white-space: pre;
+    line-height: 1.2;
+    white-space: pre-wrap;
     z-index: 4;
   }
 }
@@ -118,14 +121,17 @@
     width: calc(100% - 28px);
     right: 0;
     top: 26px;
-    padding-right: 20px;
+    padding: 0 46px;
     letter-spacing: -1px;
+
+    text-align: right;
   }
   .desc {
     width: calc(100% - 28px);
     right: 0;
-    top: 50%;
+    top: 47%;
     padding: 30px;
+    word-break:break-all;
   }
 }
 
@@ -137,14 +143,14 @@
   }
   .title {
     left: 0;
-    top: 32px;
+    top: 24px;
     text-align: center;
-    padding: 0 30px;
+    padding: 0 60px;
   }
   .desc {
     left: 0;
     top: 50%;
-    padding: 30px 40px;
+    padding: 14px 40px;
   }
 }
 
@@ -156,14 +162,38 @@
   }
   .title {
     left: 0;
-    top: 40px;
+    top: 24px;
     text-align: center;
-    padding: 0 30px;
+    padding: 0 45px 0 75px;
   }
   .desc {
     left: 0;
     top: 50%;
     padding: 40px;
+  }
+}
+.cardBackImageSilverWrap {
+  .cardBackImageBox {
+    margin: 44px 24px 0;
+    width: calc(100% - 48px);
+    height: calc(50% - 10px);
+  }
+  .title {
+    left: 0;
+    top: 20px;
+    text-align: center;
+    padding: 0 40px 0 70px;
+  }
+  .desc {
+    left: 0;
+    top: 63%;
+    padding: 30px;
+    width: 100%;
+    p{
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      word-break: break-all;
+    }
   }
 }
 
@@ -175,35 +205,11 @@
   }
   .title {
     left: 10px;
-    top: 76px;
-    padding: 0 20px;
+    top: 24px;
+    padding: 0 30px;
+    text-align: right;
   }
   .desc {
    display: none !important;
-  }
-}
-.cardBackImageSilverWrap {
-  .cardBackImageBox {
-    margin: 44px 24px 0;
-    width: calc(100% - 48px);
-    height: calc(50% - 10px);
-  }
-  .title {
-    left: 0;
-    top: 36px;
-    text-align: center;
-    padding: 0 30px;
-  }
-  .desc {
-    left: 0;
-    bottom: 46px;
-    padding: 30px;
-    width: 100%;
-    p{
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      word-break: break-all;
-    }
   }
 }
