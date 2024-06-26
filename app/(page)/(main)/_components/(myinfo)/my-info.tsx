@@ -18,7 +18,7 @@ export function MyInfo() {
 				Create Card
 			</h1>
 			<ul className='pt-10'>
-				<li className='flex items-center'>
+				<li className='flex items-center '>
 					<span className=''>Creator</span> : 🤗 kim mi so @ 2024 |
 					<Link
 						href={'https://github.com/nightowlzz/PoketmonCards'}
@@ -30,13 +30,13 @@ export function MyInfo() {
 					</Link>
 				</li>
 				<li>
-					<span className=''>Skill</span> : next.js(App) | axios | html2canvas
+					<span className=''>Framework </span> : next.js(App router)
 				</li>
 				<li>
-					<span className=''>Css</span> : tailwind css | scss module | ui shadcn
+					<span className=''>Styling Tools</span> : tailwind css | scss module | ui shadcn
 				</li>
-				<li>
-					<span className=''>lib</span> : intersection-observer
+				<li className='pl-[60px] -indent-[60px]'>
+					<span className=''>Library</span> : axios | react-query | intersection-observer <br /> html2canvas | react-hook-form
 				</li>
 				<li>
 					<span className=''>API</span> :

@@ -69,11 +69,11 @@ const config = {
 				},
 				'move-left': {
 					from: { transform: 'translateX(50%); opacity:0' },
-					to: { transform: 'translateX(0)l opacity:1' },
+					to: { transform: 'translateX(0); opacity:1' },
 				},
 				'move-top': {
-					from: { transform: 'translateY(0);' },
-					to: { transform: 'translateY(0);' },
+					from: { transform: 'translateY(0)' },
+					to: { transform: 'translateY(0)' },
 				},
 			},
 			animation: {
