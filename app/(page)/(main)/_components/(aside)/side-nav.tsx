@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const styled = {
 	wrap: 'fixed right-3 bottom-6 flex flex-col gap-y-4',
-	button: 'bg-orange-400 w-[100px]',
+	button: 'bg-orange-500 w-[100px] hover:bg-orange-600',
 };
 
 export async function SideNav() {
@@ -15,7 +15,7 @@ export async function SideNav() {
 				</Link>
 			</Button>
 			<Button asChild className={styled.button}>
-				<Link href={'/'} replace>
+				<Link href='/' replace>
 					Top
 				</Link>
 			</Button>

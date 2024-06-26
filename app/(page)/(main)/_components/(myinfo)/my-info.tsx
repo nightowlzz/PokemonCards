@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { FiGithub } from 'react-icons/fi';
 
 const font = 'GangwonEduPowerExtraBoldA , TAEBAEKfont, YangjuByeolsanA1,  Arial, Verdana, Tahoma, Segoe UI, Calibri, sans-serif';
@@ -8,7 +9,7 @@ export function MyInfo() {
 	return (
 		<div className='flex-1'>
 			<h1
-				className='text-3xl leading-normal animate-move-right'
+				className='text-3xl leading-normal'
 				style={{
 					fontFamily: font,
 				}}
@@ -16,7 +17,7 @@ export function MyInfo() {
 				Pokemon Cards &<br />
 				Create Card
 			</h1>
-			<ul className='pt-10 animate-move-right delay-100'>
+			<ul className='pt-10'>
 				<li className='flex items-center'>
 					<span className=''>Creator</span> : 🤗 kim mi so @ 2024 |
 					<Link
@@ -35,13 +36,16 @@ export function MyInfo() {
 					<span className=''>Css</span> : tailwind css | scss module | ui shadcn
 				</li>
 				<li>
+					<span className=''>lib</span> : intersection-observer
+				</li>
+				<li>
 					<span className=''>API</span> :
 					<Link href='https://tcgdex.dev/' target='_blank' className='text-[white] underline italic'>
 						tcgdex
 					</Link>
 				</li>
 			</ul>
-			<div className='mt-10 animate-move-right delay-200'>
+			<div className='mt-10'>
 				<h2 className='text-xl font-bold pb-2'>사이트 소개</h2>
 				<hr />
 				<p className='py-4'>
@@ -50,10 +54,8 @@ export function MyInfo() {
 					저장되는 데이터는 없으니 걱정하지 않으셔도 됩니다. <br />
 					<strong className='text-[#42dbf0]'>&quot;카드 만들기&ldquo;</strong>를 클릭해 주세요!
 					<br />
-					<Button asChild>
-						<Link href={'create-card'} className='mt-8 w-full bg-orange-500 font-bold hover:bg-orange-600'>
-							카드 만들기
-						</Link>
+					<Button asChild className='mt-8 w-full bg-orange-500 font-bold hover:bg-orange-600'>
+						<Link href={'create-card'}>카드 만들기</Link>
 					</Button>
 					<span className='block pt-10 text-sm text-white/50'>
 						이 웹사이트는 PC에서 사용하기에 최적화되어 있으며, Chrome 브라우저에 가장 적합하게 설계되었습니다.

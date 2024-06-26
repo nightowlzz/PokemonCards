@@ -6,6 +6,7 @@ import { CardBox } from '../(main)/_components/(card)/card-box';
 import { CreateCardForm } from './_components/create-card-form';
 import Link from 'next/link';
 import { BsBackspace } from 'react-icons/bs';
+import { Metadata } from 'next';
 
 export default function CreateCard() {
 	const [cardTitle, setCardTitle] = useState<string>('');

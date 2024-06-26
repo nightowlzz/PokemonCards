@@ -72,8 +72,8 @@ const config = {
 					to: { transform: 'translateX(0)l opacity:1' },
 				},
 				'move-top': {
-					from: { transform: 'translateY(100px); opacity:0' },
-					to: { transform: 'translateY(0)l opacity:1' },
+					from: { transform: 'translateY(0);' },
+					to: { transform: 'translateY(0);' },
 				},
 			},
 			animation: {
@@ -81,7 +81,7 @@ const config = {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'move-right': 'move-right 0.5s ease-out',
 				'move-left': 'move-left 0.5s ease-out',
-				'move-top': 'move-top 0.5s ease-out',
+				'move-top': 'move-top 0.5s linear',
 			},
 		},
 	},
