@@ -2,8 +2,8 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 const styled = {
-	wrap: 'fixed right-3 bottom-3 flex flex-col gap-y-4',
-	button: 'w-[100px]',
+	wrap: 'fixed right-3 bottom-6 flex flex-col gap-y-4',
+	button: 'bg-orange-400 w-[100px]',
 };
 
 export async function SideNav() {

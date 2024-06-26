@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import styled from './card.module.scss';
-import { createCardInfo } from './card.constants';
 import { cn } from '@/lib/utils';
 import '@/public/styles/font.css';
+import Image from 'next/image';
+import { createCardInfo } from './card.constants';
+import styled from './card.module.scss';
 
 // CardProps 인터페이스 정의
 export type cardBgTypeType = keyof typeof createCardInfo;
@@ -54,7 +54,7 @@ export function Card({
 			{/* 보는 이미지 */}
 			{type === 'view' && (
 				<Image
-					src={`${image}/low.webp`}
+					src={`${image}/high.webp`}
 					alt={name}
 					className='cardFrontImage'
 					fill
@@ -80,6 +80,7 @@ export function Card({
 						fill
 						style={{ objectFit: 'cover' }}
 						sizes='(min-width: 1024px) 330px, 250px'
+						priority
 					/>
 					{/* 추가 이미지 */}
 					<div className={styled.cardBackImageBox}>

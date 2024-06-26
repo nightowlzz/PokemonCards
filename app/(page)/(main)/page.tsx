@@ -4,6 +4,7 @@ import { CardList } from './_components/(card)/card-list';
 import { SideNav } from './_components/(aside)/side-nav';
 import { CardBox } from './_components/(card)/card-box';
 import { FiGithub } from 'react-icons/fi';
+import { SearchCardWrap } from './_components/search-card-wrap';
 
 const imageUrl = '/images/cat.jpg';
 const cardTitle = 'FE개발자 김미소';
@@ -64,7 +65,7 @@ export default async function Main() {
 					<CardBox type={'create'} cardBgType={'yellow'} name={'bg'} image={imageUrl} cardTitle={cardTitle} cardDesc={cardDesc} />
 				</div>
 			</section>
-			<CardList />
+			<SearchCardWrap />
 			<SideNav />
 		</>
 	);

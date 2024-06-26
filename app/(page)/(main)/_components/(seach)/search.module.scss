@@ -1,0 +1,10 @@
+@keyframes slide-up {
+  0% { bottom: -100%; }
+  100% { bottom: 200px; }
+}
+.slideUp {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slide-up 1s forwards;
+}
