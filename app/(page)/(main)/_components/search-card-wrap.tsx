@@ -5,11 +5,10 @@ import { useState } from 'react';
 import { CardList } from './(card)/card-list';
 import { Search } from './(seach)/search';
 
-export type sortOrderType = 'ASC' | 'DESC';
-
 const queryClient = new QueryClient();
 export function SearchCardWrap() {
 	const [search, setSearch] = useState<string>('');
+
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Search setSearch={setSearch} />

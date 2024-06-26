@@ -1,11 +1,11 @@
 'use client';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { cn } from '@/lib/utils';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { createCardInfo } from '../../(main)/_components/(card)/card.constants';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { cn } from '@/lib/utils';
 import styled from './create.module.scss';
 const cardBgType = Object.keys(createCardInfo);
 
@@ -21,7 +21,7 @@ interface CreateFormProps {
 }
 
 export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDesc, cardTitle, cardDesc, imageUrl, cardBg }: CreateFormProps) {
-	const { register, handleSubmit } = useForm();
+	const { register } = useForm();
 
 	// 파일url
 	const handlerImageUrl = (e: React.ChangeEvent<HTMLInputElement>) => {

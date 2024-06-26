@@ -4,13 +4,7 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import CardListLoading from '../../loading';
 import { CardBox } from './card-box';
-
-export interface CardType {
-	id: string;
-	localId: string;
-	name: string;
-	image?: string;
-}
+import { PoketmonCardApi } from './card.type';
 
 const PAGE_LIMIT = 40; // 페이지당 항목 수 설정
 export function CardList({ search }: { search: string }) {
@@ -49,7 +43,7 @@ export function CardList({ search }: { search: string }) {
 			<ul className='grid grid-cols-3 gap-20'>
 				{cardList?.pages.flatMap(card =>
 					card.map(
-						(card: CardType) =>
+						(card: PoketmonCardApi) =>
 							card.image && (
 								<li key={card.id} ref={ref}>
 									<CardBox image={card.image} name={card.name} />

@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Card, cardBgTypeType, cardType } from './card';
+import { Card, cardBgTypeType } from './card';
+import { cardType } from './card.type';
 
 interface CardBodProp {
 	name: string;

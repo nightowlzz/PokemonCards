@@ -3,10 +3,11 @@ import '@/public/styles/font.css';
 import Image from 'next/image';
 import { createCardInfo } from './card.constants';
 import styled from './card.module.scss';
+import { cardType } from './card.type';
 
 // CardProps 인터페이스 정의
 export type cardBgTypeType = keyof typeof createCardInfo;
-export type cardType = 'view' | 'create';
+
 interface CardProps {
 	handleMouseMoving: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 	handleMouseOut: () => void;
