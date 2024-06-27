@@ -3,10 +3,10 @@ import '@/public/styles/font.css';
 import Image from 'next/image';
 import { createCardInfo } from './card.constants';
 import styled from './card.module.scss';
-import { cardType } from './card.type';
+import { CardType } from './card.type';
 
 // CardProps 인터페이스 정의
-export type cardBgTypeType = keyof typeof createCardInfo;
+export type CardBgType = keyof typeof createCardInfo;
 
 interface CardProps {
 	handleMouseMoving: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
@@ -22,8 +22,8 @@ interface CardProps {
 		x: number;
 		y: number;
 	};
-	type?: cardType;
-	cardBgType?: cardBgTypeType;
+	type?: CardType;
+	cardBgType?: CardBgType;
 	cardTitle?: string;
 	cardDesc?: string;
 }

@@ -1,4 +1,4 @@
-export type cardType = 'view' | 'create';
+export type CardType = 'view' | 'create';
 
 // api 받아온 카드 타입
 export interface PoketmonCardApi {
