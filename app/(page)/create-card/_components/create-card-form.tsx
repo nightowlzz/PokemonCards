@@ -23,7 +23,7 @@ interface CreateFormProps {
 export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDesc, cardTitle, cardDesc, imageUrl, cardBg }: CreateFormProps) {
 	const { register, watch, setValue } = useForm();
 	const fileStyle = watch('file');
-	console.log(fileStyle);
+
 	// 파일url
 	const handlerImageUrl = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (!e.target.files) return;

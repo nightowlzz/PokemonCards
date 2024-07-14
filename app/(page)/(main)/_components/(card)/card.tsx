@@ -61,6 +61,7 @@ export function Card({
 					fill
 					style={{ objectFit: 'cover' }}
 					sizes='(min-width: 1024px) 330px, 250px'
+					priority
 				/>
 			)}
 
@@ -74,18 +75,20 @@ export function Card({
 						<p>{cardDesc}</p>
 					</div>
 					{/* 카드배경 */}
-					<Image
-						src={`${createCardInfo[cardBgType].frontImageUrl}`}
-						alt={name}
-						className='cardFrontImage'
-						fill
-						style={{ objectFit: 'cover' }}
-						sizes='(min-width: 1024px) 330px, 250px'
-						priority
-					/>
+					<div className='absolute w-full h-full z-1'>
+						<Image
+							src={`${createCardInfo[cardBgType].frontImageUrl}`}
+							alt={name}
+							className='cardFrontImage'
+							fill
+							style={{ objectFit: 'cover' }}
+							sizes='(min-width: 1024px) 330px, 250px'
+							priority
+						/>
+					</div>
 					{/* 추가 이미지 */}
 					<div className={styled.cardBackImageBox}>
-						<Image src={`${image}`} alt={name} className={styled.cardBackImage} width={330} height={460} />
+						<Image src={image ? image : '/empty.webp'} alt={image ? name : ''} className={styled.cardBackImage} width={330} height={460} />
 					</div>
 				</div>
 			)}
