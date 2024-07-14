@@ -6,7 +6,7 @@ import CardListLoading from '../../loading';
 import { CardBox } from './card-box';
 import { PoketmonCardApi } from './card.type';
 
-const PAGE_LIMIT = 40; // 페이지당 항목 수 설정
+const PAGE_LIMIT = 20; // 페이지당 항목 수 설정
 export function CardList({ search }: { search: string }) {
 	const [ref, inView] = useInView({
 		threshold: 0.1,

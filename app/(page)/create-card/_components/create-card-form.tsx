@@ -21,8 +21,9 @@ interface CreateFormProps {
 }
 
 export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDesc, cardTitle, cardDesc, imageUrl, cardBg }: CreateFormProps) {
-	const { register } = useForm();
-
+	const { register, watch, setValue } = useForm();
+	const fileStyle = watch('file');
+	console.log(fileStyle);
 	// 파일url
 	const handlerImageUrl = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (!e.target.files) return;
@@ -36,6 +37,7 @@ export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDe
 	// 파일 삭제
 	const handleImageDelete = () => {
 		setImageUrl('');
+		setValue('file', null);
 	};
 
 	return (
@@ -66,7 +68,7 @@ export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDe
 				</label>
 				<Textarea
 					id='title'
-					placeholder={`${createCardInfo[cardBg].titlePlaceholder}`}
+					placeholder={`${createCardInfo[cardBg].titlePlaceholder || ''}`}
 					className='text-black min-h-[60px] pr-[90px]'
 					value={cardTitle}
 					{...register('title', {
@@ -107,10 +109,15 @@ export function CreateCardForm({ setImageUrl, setCardBg, setCardTitle, setCardDe
 						id='file'
 						type='file'
 						accept='image/*'
-						className={cn(styled.fileInput, 'absolute inset-0 w-full h-full cursor-pointer z-0')}
+						className={cn(
+							styled.fileInput,
+							fileStyle && fileStyle.length > 0 ? styled['before-none'] : '',
+							'absolute inset-0 w-full h-full cursor-pointer z-0',
+						)}
 						{...register('file', { onChange: handlerImageUrl })}
 					/>
 					<label
+						aria-label='파일 업로드 버튼'
 						htmlFor='file'
 						className='absolute inset-0 w-full h-full flex items-center justify-center border-2 bg-contain bg-center bg-no-repeat z-3 cursor-pointer'
 						style={{ backgroundImage: `url(${imageUrl})` }}
