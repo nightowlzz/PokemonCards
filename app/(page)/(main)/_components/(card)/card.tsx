@@ -88,7 +88,7 @@ export function Card({
 					</div>
 					{/* 추가 이미지 */}
 					<div className={styled.cardBackImageBox}>
-						<Image src={image ? image : '/empty.webp'} alt={image ? name : ''} className={styled.cardBackImage} width={330} height={460} />
+						<Image src={image ? image : '/empty.webp'} alt={image ? name : ''} className={styled.cardBackImage} width={330} height={460} priority />
 					</div>
 				</div>
 			)}
